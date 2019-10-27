@@ -23,7 +23,16 @@ public class GeoCode extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		try {
-			request.setAttribute("add", (String[]) DataTojs.getAddress());
+//			request.setAttribute("add", (String[]) DataTojs.getAddress());
+//			request.setAttribute("adds",new String[]);
+			String[] adds={"杭州东站","余杭区金地艺境"};
+			request.setAttribute("adds",adds);
+			if(false){
+				throw new JSONException("SS");
+			}
+			if(false){
+				throw new SQLException("BB");
+			}
 		} catch (JSONException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

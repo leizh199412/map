@@ -18,19 +18,28 @@ public class DataTojs {
 		//JSONObject json=null;
 		String lsCity;
 		JSONArray jsonMembers =new JSONArray();
-		ResultSet rs=PointDao.getPoint();
-		//rs=PointDao.getPoint();
-		while(rs.next()) {
-			JSONObject city1 = new JSONObject();
+//		ResultSet rs=PointDao.getPoint();
+//		//rs=PointDao.getPoint();
+//		while(rs.next()) {
+//			JSONObject city1 = new JSONObject();
+//			//将每一条数据转换为一个json对象
+//			city1.put("ID", rs.getString(1));
+//			city1.put("city", rs.getString(2));
+//			city1.put("X", rs.getString(3));
+//			city1.put("Y", rs.getString(4));
+//			//将json对象添加到一个json数组中
+//			jsonMembers.put(city1);
+//		}
+//		rs.close();
+		JSONObject city1 = new JSONObject();
 			//将每一条数据转换为一个json对象
-			city1.put("ID", rs.getString(1));
-			city1.put("city", rs.getString(2));
-			city1.put("X", rs.getString(3));
-			city1.put("Y", rs.getString(4));
+			city1.put("ID", "1");
+			city1.put("city", "北京");
+			city1.put("X", "");
+			city1.put("Y", "");
 			//将json对象添加到一个json数组中
-			jsonMembers.put(city1);	
-		}
-		rs.close();
+			jsonMembers.put(city1);
+
 		lsCity=jsonMembers.toString();
 		return lsCity;
 	}

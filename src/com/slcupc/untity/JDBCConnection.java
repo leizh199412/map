@@ -15,7 +15,7 @@ public class JDBCConnection {
 			// �û���
 			String username = "root";
 			// 
-			String password = "123456789";
+			String password = "941204";
 			conn = DriverManager.getConnection(url, username, password);
 
 		} catch (ClassNotFoundException e) {

@@ -60,7 +60,7 @@ body {
     
 	function load_map() {
 		//从数据库查询数据，json格式
-		map = new BMap.Map("main",{mapType: BMAP_HYBRID_MAP});//卫星地图
+		map = new BMap.Map("main",{mapType: BMAP_NORMAL_MAP});//卫星地图   BMAP_HYBRID_MAP
 		var point = new BMap.Point(116.404, 39.915);//北京
 		var geolocation = new BMap.Geolocation();//实例化
 		map.centerAndZoom(point, 6); //初始化地图

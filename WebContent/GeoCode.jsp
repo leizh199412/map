@@ -17,7 +17,7 @@ body, html {
 }
 
 #l-map {
-	height: 300px;
+	height: 500px;
 	width: 100%;
 }
 
@@ -43,37 +43,39 @@ body, html {
 			for (int i = 0; i < ads.length; i++) {
 				System.out.println(ads[i]);
 			}
-			*/
-		ResultSet rs = PointDao.getAddress();
-		String[] adds = new String[rs.getMetaData().getColumnCount()];
-		while (rs.next()) {
-			for (int i = 0; i < rs.getMetaData().getColumnCount(); i++) {
-				adds[i] = rs.getString(2);
-				System.out.println(adds[i]);
-			}
-		}
+//			*/
+//		ResultSet rs = PointDao.getAddress();
+////		String[] adds = new String[rs.getMetaData().getColumnCount()];
+////		while (rs.next()) {
+////			for (int i = 0; i < rs.getMetaData().getColumnCount(); i++) {
+////				adds[i] = rs.getString(2);
+////				System.out.println(adds[i]);
+////			}
+////		}
+		String[] adds=(String[])request.getAttribute("adds");
 	%>
 </body>
 </html>
 <script type="text/javascript">
 	// 百度地图API功能
-	var adds='<%=adds%>';
+	var adds='<%=request.getAttribute("adds")%>';
 	alert(adds);
 	var map = new BMap.Map("l-map");
 	map.centerAndZoom(new BMap.Point(117.269945, 31.86713), 13);
 	map.enableScrollWheelZoom(true);
 	var index = 0;
 	var myGeo = new BMap.Geocoder();
-	/*
-	var adds = [ "包河区金寨路1号（金寨路与望江西路交叉口）", "庐阳区凤台路209号（凤台路与蒙城北路交叉口）",
-			"蜀山区金寨路217号(近安医附院公交车站)", "蜀山区梅山路10号(近安徽饭店) ",
-			"蜀山区 长丰南路159号铜锣湾广场312室", "合肥市寿春路93号钱柜星乐町KTV（逍遥津公园对面）",
-			"庐阳区长江中路177号", "新站区胜利路89" ];
-	
-	var ad = JSON.parse(ads);
-	alert(ad);
-	alert(adds);
-	*/
+
+	// var adds = [ "包河区金寨路1号（金寨路与望江西路交叉口）", "庐阳区凤台路209号（凤台路与蒙城北路交叉口）",
+	// 		"蜀山区金寨路217号(近安医附院公交车站)", "蜀山区梅山路10号(近安徽饭店) ",
+	// 		"蜀山区 长丰南路159号铜锣湾广场312室", "合肥市寿春路93号钱柜星乐町KTV（逍遥津公园对面）",
+	// 		"庐阳区长江中路177号", "新站区胜利路89" ];
+    // var adds = [ "杭州东站", "金地艺境"];
+    //
+	// var ad = JSON.parse(ads);
+	// alert(ad);
+	// alert(adds);
+
 	function bdGEO() {
 		var add = adds[index];
 		geocodeSearch(add);
@@ -92,7 +94,7 @@ body, html {
 					offset : new BMap.Size(20, -10)
 				}));
 			}
-		}, "合肥市");
+		}, "杭州市");
 	}
 	// 编写自定义函数,创建标注
 	function addMarker(point, label) {
